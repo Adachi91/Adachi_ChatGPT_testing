@@ -22,7 +22,7 @@ namespace Adachi_ChatGPT_testing
             _password = password;
         }
         
-        public async Task<string> SendHelloWorld()
+        public async Task<string> SendPayload(string payload)
         {
             // Create a new HttpClient instance
             using (HttpClient client = new HttpClient())
@@ -39,7 +39,7 @@ namespace Adachi_ChatGPT_testing
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeader);
 
                 // Create a new HTTP POST request with the "Hello World" payload
-                var content = new StringContent("Hello World", Encoding.UTF8, "text/plain");
+                var content = new StringContent(payload, Encoding.UTF8, "text/plain");
                 var response = await client.PostAsync("", content);
 
                 // Check if the response was successful
