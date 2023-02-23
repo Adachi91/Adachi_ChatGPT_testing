@@ -30,6 +30,9 @@ namespace Adachi_ChatGPT_testing
                 // Set the remote endpoint URI
                 client.BaseAddress = _uri;
 
+                //add useragent header so i can find meself in logs 
+                client.DefaultRequestHeaders.Add("User-Agent", "Adachi Desktop thingy v0.8");
+
                 // Configure SSL/TLS connection
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
